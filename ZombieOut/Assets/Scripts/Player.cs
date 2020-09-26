@@ -17,5 +17,13 @@ public class Player : MonoBehaviour
 
         _direction = new Vector3(_eixoX, 0, _eixoZ);
         transform.Translate(_direction * _speed * Time.deltaTime);
+
+        if (_direction != Vector3.zero)
+        {
+            GetComponent<Animator>().SetBool("Move", true);
+        } else
+        {
+            GetComponent<Animator>().SetBool("Move", false);
+        }
     }
 }
