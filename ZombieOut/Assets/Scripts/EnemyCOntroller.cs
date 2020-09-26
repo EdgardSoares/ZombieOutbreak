@@ -21,7 +21,17 @@ public class EnemyCOntroller : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 _direcao = _player.transform.position - transform.position;
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (_direcao.normalized * _enemySpeed * Time.deltaTime));
+        
+
+        float _distance = Vector3.Distance(transform.position, _player.transform.position); //calcular a distance entre o inimigo e o jogador
+
+        if(_distance > 2.5)
+        {
+            Vector3 _direcao = _player.transform.position - transform.position; //calcular a direcao entre o jogador e o inimigo
+            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (_direcao.normalized * _enemySpeed * Time.deltaTime)); //fazer movimentar, seguir o inimigo ate o jogador
+
+            Quaternion _rotation = Quaternion.LookRotation(_direcao); //calcular a rotacao que o inimigo tem que fazer em direcao ao jogador
+            GetComponent<Rigidbody>().MoveRotation(_rotation); //fazer com o que o inimigo faca a rotacao em direcao ao jogador
+        }
     }
 }
