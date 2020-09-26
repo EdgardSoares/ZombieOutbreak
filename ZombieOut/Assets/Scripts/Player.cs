@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Movimentacao por segundo do jogador usando a fisica da Unity
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + _direction * _speed * Time.deltaTime);
     }
 }
