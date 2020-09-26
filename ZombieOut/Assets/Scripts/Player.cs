@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
         _direction = new Vector3(_eixoX, 0, _eixoZ);
 
+        //Condicao para executar animacao de Idle para Walking
         if (_direction != Vector3.zero)
         {
             GetComponent<Animator>().SetBool("Move", true);
