@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
         _eixoZ = Input.GetAxis("Vertical");
 
         _direction = new Vector3(_eixoX, 0, _eixoZ);
-        transform.Translate(_direction * _speed * Time.deltaTime);
 
         if (_direction != Vector3.zero)
         {
@@ -25,5 +24,10 @@ public class Player : MonoBehaviour
         {
             GetComponent<Animator>().SetBool("Move", false);
         }
+    }
+
+    void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + _direction * _speed * Time.deltaTime);
     }
 }
