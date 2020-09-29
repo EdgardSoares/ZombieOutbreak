@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCOntroller : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 
-    public GameObject _player;
-    public float _enemySpeed;
+    public GameObject _jogador;
+    public float _speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,17 +22,17 @@ public class EnemyCOntroller : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-
-        float _distance = Vector3.Distance(transform.position, _player.transform.position); //calcular a distance entre o inimigo e o jogador
-
-        if(_distance > 2.5)
+        float _distancia = Vector3.Distance(transform.position, _jogador.transform.position);
+        if(_distancia > 2)
         {
-            Vector3 _direcao = _player.transform.position - transform.position; //calcular a direcao entre o jogador e o inimigo
-            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (_direcao.normalized * _enemySpeed * Time.deltaTime)); //fazer movimentar, seguir o inimigo ate o jogador
+            Vector3 _direcao = _jogador.transform.position - transform.position;
+            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + _direcao.normalized * _speed * Time.deltaTime);
 
-            Quaternion _rotation = Quaternion.LookRotation(_direcao); //calcular a rotacao que o inimigo tem que fazer em direcao ao jogador
-            GetComponent<Rigidbody>().MoveRotation(_rotation); //fazer com o que o inimigo faca a rotacao em direcao ao jogador
+            Quaternion _rotacao = Quaternion.LookRotation(_direcao);
+            GetComponent<Rigidbody>().MoveRotation(_rotacao);
         }
+        
+       
+
     }
 }
