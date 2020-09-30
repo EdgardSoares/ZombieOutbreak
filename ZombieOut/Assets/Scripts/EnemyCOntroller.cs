@@ -22,17 +22,31 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector3 _direcao = _jogador.transform.position - transform.position;
         float _distancia = Vector3.Distance(transform.position, _jogador.transform.position);
-        if(_distancia > 2)
-        {
-            Vector3 _direcao = _jogador.transform.position - transform.position;
-            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + _direcao.normalized * _speed * Time.deltaTime);
+        Quaternion _rotacao = Quaternion.LookRotation(_direcao);
+        GetComponent<Rigidbody>().MoveRotation(_rotacao);
 
-            Quaternion _rotacao = Quaternion.LookRotation(_direcao);
-            GetComponent<Rigidbody>().MoveRotation(_rotacao);
+        if (_distancia > 2.5)
+        {
+            
+            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + _direcao.normalized * _speed * Time.deltaTime);
+            GetComponent<Animator>().SetBool("Atacando", false);
+
+
+        } else
+        {
+            GetComponent<Animator>().SetBool("Atacando", true);
         }
         
        
 
+    }
+
+    void AtacandoJogador()
+    {
+        Time.timeScale = 0;
+        _jogador.GetComponent<Player>().textoGameOver.SetActive(true);
+        _jogador.GetComponent<Player>().vivo = false;
     }
 }
