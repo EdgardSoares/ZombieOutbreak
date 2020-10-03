@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 SceneManager.LoadScene("SampleScene");
-                textoGameOver.SetActive(true);
             }
         }
     }
