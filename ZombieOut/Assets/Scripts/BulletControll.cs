@@ -7,7 +7,7 @@ public class BulletControll : MonoBehaviour
     public GameObject _bullet;
     public GameObject _CanoDaArma;
 
-    public 
+    public GameObject _vfx;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class BulletControll : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(_bullet, _CanoDaArma.transform.position, _CanoDaArma.transform.rotation);
+            _vfx
         }
     }
 }
