@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54031c250e224674da72d47c8df44a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jogador: {fileID: 0}
+  _jogador: {fileID: 100000, guid: 6bebb462738073b49b04fda2d21f73ad, type: 3}
   _speed: 3
 --- !u!1001 &448486272021792057
 PrefabInstance:

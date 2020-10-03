@@ -16,7 +16,6 @@ public class LoadScene : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            Debug.Log("heelo");
             SceneManager.LoadScene("SampleScene");
         }
     }

@@ -7,12 +7,15 @@ public class EnemyController : MonoBehaviour
 
     public GameObject _jogador;
     public float _speed;
-
+    public AudioSource _zombieSound;
+ 
     // Start is called before the first frame update
     void Start()
     {
         _jogador = GameObject.FindWithTag("Player");
-
+        _zombieSound = GetComponent<AudioSource>();
+        _zombieSound.Play();
+     
         
     }
 
@@ -50,5 +53,6 @@ public class EnemyController : MonoBehaviour
         Time.timeScale = 0;
         _jogador.GetComponent<Player>().textoGameOver.SetActive(true);
         _jogador.GetComponent<Player>().vivo = false;
+       
     }
 }

@@ -13,10 +13,12 @@ public class Player : MonoBehaviour
     public LayerMask mascaraChao;
     public GameObject textoGameOver;
     public bool vivo = true;
+    public AudioSource _gameOverSound;
 
     void Start()
     {
         Time.timeScale = 1;
+       _gameOverSound = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -40,8 +42,12 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 SceneManager.LoadScene("SampleScene");
+                _gameOverSound.Stop();
             }
         }
+
+
+        
     }
 
     void FixedUpdate()
@@ -64,4 +70,7 @@ public class Player : MonoBehaviour
         }
 
     }
+
+
+    
 }
