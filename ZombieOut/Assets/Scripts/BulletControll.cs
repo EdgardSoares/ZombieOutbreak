@@ -7,11 +7,12 @@ public class BulletControll : MonoBehaviour
     public GameObject _bullet;
     public GameObject _CanoDaArma;
 
-    Animator _bulletShot;
+    public 
+    
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
