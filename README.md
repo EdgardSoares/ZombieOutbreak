@@ -9,6 +9,9 @@ Move using W/S/A/D
 Aim using mouse
 Fire Left click or Space Bar
 
+# Download
+Download and Install the game here: https://edgard-thobias.itch.io/zombie-outbreak
+
 # Screenshots
 ![](ZombieOut/Assets/Imagens/ZombieOut2.png)
 
